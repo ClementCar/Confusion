@@ -59,7 +59,7 @@
     <hr>
   </div>
   <mat-list class="container" *ngFor="let leader of leaders" fxLayout="row" fxLayoutAlign.gt-md="space-around center">
-    <mat-list-item *ngIf="leaders">
+    <mat-list-item *ngIf="leaders" [@expand]>
         <img mat-list-avatar src="{{leader.image}}" alt="{{leader.name}}">
     </mat-list-item>
     <mat-list-item *ngIf="leaders">
