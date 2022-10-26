@@ -60,7 +60,7 @@
   </div>
   <mat-list class="container" *ngFor="let leader of leaders" fxLayout="row" fxLayoutAlign.gt-md="space-around center">
     <mat-list-item *ngIf="leaders" [@expand]>
-        <img mat-list-avatar src="{{leader.image}}" alt="{{leader.name}}">
+        <img mat-list-avatar src="{{ BaseURL + leader.image}}" alt="{{leader.name}}">
     </mat-list-item>
     <mat-list-item *ngIf="leaders">
         <p matLine>{{leader.name}} {{leader.abbr}}</p>
@@ -68,7 +68,7 @@
         <p matLine>{{leader.description}}</p>
     </mat-list-item>
   </mat-list>
-  <div fxFlex [hidden]="leaders">
+  <div fxFlex [hidden]="leaders || errMsg">
     <mat-spinner></mat-spinner> <h4>Loading . . . Please Wait</h4>
   </div>
 </div>

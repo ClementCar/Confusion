@@ -41,7 +41,7 @@
 <!--for showing -->
     <p>{{ feedbackForm.value | json}} {{feedbackForm.status}}</p>
 
-    <form novalidate [formGroup]="feedbackForm" #fform="ngForm" (ngSubmit)="onSubmit()">
+    <form novalidate [formGroup]="feedbackForm" #fform="ngForm" (ngSubmit)="onSubmit()" [hidden]="Spin || Send" [@expand]>
       <p>
         <mat-form-field class="half-width">
           <input matInput formControlName="firstname" placeholder="First Name" type="text" required>
@@ -82,5 +82,20 @@
       <button type="submit" mat-button class="background-primary text-floral-white"
       [disabled]="feedbackForm.invalid">Submit</button>
     </form>
+    <div fxFlex *ngIf="Spin" [@expand]>
+      <mat-spinner></mat-spinner> <h4>Sending Your feedback . . .</h4>
+    </div>
+    <mat-list *ngIf="Send" [@expand]>
+      <h3>Your Submission</h3>
+      <mat-list-item>
+        <p matLine>First Name: {{sendFeedback.firstname}}</p>
+        <p matLine>Last Name: {{sendFeedback.lastname}}</p>
+        <p matLine>Tel. Number: {{sendFeedback.telnum}}</p>
+        <p matLine>Email: {{sendFeedback.email}}</p>
+        <p matLine>Contact you?: {{sendFeedback.agree}}</p>
+        <p matLine>How?: {{sendFeedback.contacttype}}</p>
+        <p matLine>Feedback: {{sendFeedback.message}}</p>
+      </mat-list-item>
+    </mat-list>
   </div>
 </div>
