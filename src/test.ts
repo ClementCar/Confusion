@@ -21,6 +21,7 @@ getTestBed().initTestEnvironment(
 );
 
 // Then we find all the tests.
-const context = require.context('./', true, /\.spec\.ts$/);
+// const context = require.context('./', true, /\.spec\.ts$/);
+const context = require.context('./', true, /menu\.component\.spec\.ts$/); // test uniquement sur menu.component
 // And load the modules.
 context.keys().forEach(context);
